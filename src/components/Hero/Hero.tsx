@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
                 <div className="text-sm text-gray-600">Pacientes Atendidos</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-1">8+</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-1">18+</div>
                 <div className="text-sm text-gray-600">Anos de Experiência</div>
               </div>
               <div className="text-center">

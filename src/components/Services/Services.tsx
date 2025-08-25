@@ -203,7 +203,7 @@ export const Services: React.FC<ServicesProps> = ({ className = '' }) => {
               <div className="text-sm opacity-80">Satisfação dos Pacientes</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-1">8+</div>
+              <div className="text-3xl font-bold mb-1">18+</div>
               <div className="text-sm opacity-80">Anos de Experiência</div>
             </div>
           </div>
