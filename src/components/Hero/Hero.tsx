@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContactForm } from '../ContactForm/ContactForm';
+import { ServicesSlider } from '../ServicesSlider/ServicesSlider';
 
 interface HeroProps {
   className?: string;
@@ -114,38 +115,14 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
           </div>
         </div>
         
-        {/* Featured Services - Oculto no mobile */}
+        {/* Featured Services Slider - Oculto no mobile */}
         <div className="hidden lg:block mt-8 pt-8 border-t border-bronze-300">
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-luxury mb-2">Nossos Principais Procedimentos</h3>
+            <h3 className="text-2xl font-bold text-luxury mb-2">✨ Conheça os procedimentos da nossa clínica ✨</h3>
             <p className="text-muted">Tratamentos especializados para sua beleza</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-bg-800 to-bronze-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-bronze-300">
-              <div className="w-12 h-12 bg-bronze-600 bg-opacity-30 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl">✨</span>
-              </div>
-              <h4 className="text-lg font-semibold text-luxury mb-2">HARMONIZAÇÃO FACIAL</h4>
-              <p className="text-sm text-muted">E CORPORAL</p>
-            </div>
-            
-            <div className="bg-gradient-to-br from-bg-800 to-bronze-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-bronze-300">
-              <div className="w-12 h-12 bg-bronze-600 bg-opacity-30 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl">💉</span>
-              </div>
-              <h4 className="text-lg font-semibold text-luxury mb-2">BOTOX</h4>
-              <p className="text-sm text-muted">Rejuvenescimento natural</p>
-            </div>
-            
-            <div className="bg-gradient-to-br from-bg-800 to-bronze-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-bronze-300">
-              <div className="w-12 h-12 bg-bronze-600 bg-opacity-30 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl">🌟</span>
-              </div>
-              <h4 className="text-lg font-semibold text-luxury mb-2">BIO ESTIMULADOR</h4>
-              <p className="text-sm text-muted">De colágeno</p>
-            </div>
-          </div>
+          <ServicesSlider />
         </div>
       </div>
     </section>

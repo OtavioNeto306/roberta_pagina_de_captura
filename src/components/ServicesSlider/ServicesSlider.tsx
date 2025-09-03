@@ -8,20 +8,17 @@ interface Service {
 }
 
 const services: Service[] = [
-  { id: 1, name: 'BLACK PEEL' },
-  { id: 2, name: 'BOTOX FULL FACE' },
-  { id: 3, name: 'BOTOX SIMPLES' },
-  { id: 4, name: 'CRIO FREQUÊNCIA CORPORAL E FACIAL' },
-  { id: 5, name: 'DEPILAÇÃO A LASER CORPORAL E FACIAL' },
-  { id: 6, name: 'DRENAGEM LINFÁTICA' },
-  { id: 7, name: 'ELLANSÉ' },
-  { id: 8, name: 'ESTÉTICA ÍNTIMA' },
-  { id: 9, name: 'EZBODY' },
-  { id: 10, name: 'HYPER SLIN' },
-  { id: 11, name: 'JATO DE PLASMA' },
-  { id: 12, name: 'LIMPEZA DE PELE' },
-  { id: 13, name: 'PROENZAYME' },
-  { id: 14, name: 'MICROAGULHAMENTO FACIAL E CORPORAL' }
+  { id: 1, name: '✨ Harmonização facial e corporal' },
+  { id: 2, name: '✨ Bio estimulador de colágeno' },
+  { id: 3, name: '✨ Botox' },
+  { id: 4, name: '✨ Preenchimento' },
+  { id: 5, name: '✨ Estética íntima' },
+  { id: 6, name: '✨ Microagulhamento' },
+  { id: 7, name: '✨ Black PEEL' },
+  { id: 8, name: '✨ Limpeza de pele' },
+  { id: 9, name: '✨ Proenzyme' },
+  { id: 10, name: '✨ Jato de plasma' },
+  { id: 11, name: '✨ Ultrassom microfocado' }
 ];
 
 export const ServicesSlider: React.FC = () => {
