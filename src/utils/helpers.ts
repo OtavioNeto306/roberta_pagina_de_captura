@@ -41,7 +41,6 @@ export const sendToWebhook = async (data: ContactFormData): Promise<WebhookRespo
       body: JSON.stringify({
         fullName: data.fullName,
         whatsapp: formatWhatsApp(data.whatsapp),
-        email: data.email,
         timestamp: new Date().toISOString(),
         source: 'landing-page',
       }),
