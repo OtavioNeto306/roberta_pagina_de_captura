@@ -71,22 +71,35 @@ const ServiceCard: React.FC<ServiceProps> = ({
 export const Services: React.FC<ServicesProps> = ({ className = '' }) => {
   const services: ServiceProps[] = [
     {
-      icon: '💉',
-      title: 'Harmonização Facial',
-      description: 'Técnicas avançadas para realçar a beleza natural do rosto, proporcionando equilíbrio e harmonia às suas características.',
+      icon: '✨',
+      title: 'Harmonização Facial e Corporal',
+      description: 'Técnicas avançadas para realçar a beleza natural do rosto e corpo, proporcionando equilíbrio e harmonia às suas características.',
       benefits: [
         'Preenchimento de rugas e sulcos',
-        'Aumento de volume labial',
-        'Contorno facial definido',
-        'Resultados naturais e duradouros'
+        'Contorno facial e corporal definido',
+        'Resultados naturais e duradouros',
+        'Técnicas minimamente invasivas'
       ],
-      duration: '45-60 min',
-      price: 'R$ 800'
+      duration: '60-90 min',
+      price: 'Consulte'
     },
     {
-      icon: '✨',
-      title: 'Toxina Botulínica',
-      description: 'Tratamento para suavizar rugas de expressão e prevenir o envelhecimento, mantendo a naturalidade dos movimentos faciais.',
+      icon: '🌟',
+      title: 'Bio Estimulador de Colágeno',
+      description: 'Tratamento que estimula a produção natural de colágeno, promovendo rejuvenescimento gradual e duradouro da pele.',
+      benefits: [
+        'Estímulo natural do colágeno',
+        'Rejuvenescimento gradual',
+        'Melhora da firmeza da pele',
+        'Resultados progressivos'
+      ],
+      duration: '45-60 min',
+      price: 'Consulte'
+    },
+    {
+      icon: '💉',
+      title: 'Botox',
+      description: 'Aplicação de toxina botulínica para suavizar rugas de expressão e prevenir o envelhecimento, mantendo a naturalidade dos movimentos.',
       benefits: [
         'Redução de rugas dinâmicas',
         'Prevenção do envelhecimento',
@@ -94,59 +107,111 @@ export const Services: React.FC<ServicesProps> = ({ className = '' }) => {
         'Procedimento rápido e seguro'
       ],
       duration: '20-30 min',
-      price: 'R$ 600'
+      price: 'Consulte'
     },
     {
-      icon: '🌟',
-      title: 'Preenchimento Labial',
-      description: 'Aumento e definição dos lábios com ácido hialurônico, criando um contorno natural e volume adequado ao seu rosto.',
+      icon: '💎',
+      title: 'Preenchimento',
+      description: 'Preenchimento com ácido hialurônico para restaurar volume, definir contornos e suavizar rugas e sulcos.',
       benefits: [
-        'Volume natural dos lábios',
-        'Definição do contorno',
+        'Restauração de volume',
+        'Definição de contornos',
         'Hidratação profunda',
         'Resultado imediato'
       ],
       duration: '30-45 min',
-      price: 'R$ 700'
-    },
-    {
-      icon: '💎',
-      title: 'Skinbooster',
-      description: 'Hidratação profunda da pele com ácido hialurônico, melhorando a textura, elasticidade e luminosidade natural.',
-      benefits: [
-        'Hidratação intensa',
-        'Melhora da textura da pele',
-        'Aumento da elasticidade',
-        'Glow natural duradouro'
-      ],
-      duration: '40-50 min',
-      price: 'R$ 900'
-    },
-    {
-      icon: '🎯',
-      title: 'Fios de PDO',
-      description: 'Lifting não cirúrgico com fios absorvíveis que promovem sustentação e estimulam a produção de colágeno.',
-      benefits: [
-        'Lifting facial sem cirurgia',
-        'Estímulo ao colágeno',
-        'Sustentação natural',
-        'Recuperação rápida'
-      ],
-      duration: '60-90 min',
-      price: 'R$ 1.200'
+      price: 'Consulte'
     },
     {
       icon: '🌸',
-      title: 'Bioestimuladores',
-      description: 'Tratamento que estimula a produção natural de colágeno, promovendo rejuvenescimento gradual e duradouro.',
+      title: 'Estética Íntima',
+      description: 'Tratamentos especializados para rejuvenescimento e harmonização da região íntima feminina com técnicas avançadas.',
       benefits: [
-        'Estímulo natural do colágeno',
-        'Rejuvenescimento gradual',
-        'Resultados duradouros',
-        'Melhora da qualidade da pele'
+        'Rejuvenescimento íntimo',
+        'Melhora da autoestima',
+        'Procedimentos seguros',
+        'Resultados naturais'
       ],
       duration: '45-60 min',
-      price: 'R$ 1.000'
+      price: 'Consulte'
+    },
+    {
+      icon: '🎯',
+      title: 'Microagulhamento',
+      description: 'Técnica que estimula a renovação celular através de microlesões controladas, melhorando a textura e qualidade da pele.',
+      benefits: [
+        'Renovação celular',
+        'Melhora da textura da pele',
+        'Redução de cicatrizes',
+        'Estímulo ao colágeno'
+      ],
+      duration: '60-90 min',
+      price: 'Consulte'
+    },
+    {
+      icon: '🖤',
+      title: 'Black PEEL',
+      description: 'Peeling químico avançado para renovação profunda da pele, tratando manchas, cicatrizes e melhorando a textura.',
+      benefits: [
+        'Renovação profunda da pele',
+        'Redução de manchas',
+        'Melhora de cicatrizes',
+        'Uniformização do tom'
+      ],
+      duration: '45-60 min',
+      price: 'Consulte'
+    },
+    {
+      icon: '🧼',
+      title: 'Limpeza de Pele',
+      description: 'Limpeza profunda e profissional da pele, removendo impurezas e promovendo uma pele mais saudável e luminosa.',
+      benefits: [
+        'Remoção de impurezas',
+        'Desobstrução dos poros',
+        'Pele mais luminosa',
+        'Prevenção de acne'
+      ],
+      duration: '60-90 min',
+      price: 'Consulte'
+    },
+    {
+      icon: '🧬',
+      title: 'Proenzyme',
+      description: 'Tratamento enzimático avançado que promove a renovação celular e melhora a qualidade da pele de forma natural.',
+      benefits: [
+        'Renovação celular natural',
+        'Melhora da qualidade da pele',
+        'Tratamento suave',
+        'Resultados progressivos'
+      ],
+      duration: '45-60 min',
+      price: 'Consulte'
+    },
+    {
+      icon: '⚡',
+      title: 'Jato de Plasma',
+      description: 'Tecnologia avançada de plasma para rejuvenescimento da pele, tratamento de rugas e melhora da firmeza.',
+      benefits: [
+        'Rejuvenescimento da pele',
+        'Melhora da firmeza',
+        'Redução de rugas finas',
+        'Estímulo ao colágeno'
+      ],
+      duration: '30-45 min',
+      price: 'Consulte'
+    },
+    {
+      icon: '🔊',
+      title: 'Ultrassom Microfocado',
+      description: 'Tecnologia de ultrassom focado para lifting não cirúrgico, promovendo firmeza e rejuvenescimento da pele.',
+      benefits: [
+        'Lifting não cirúrgico',
+        'Firmeza da pele',
+        'Rejuvenescimento profundo',
+        'Sem tempo de recuperação'
+      ],
+      duration: '60-90 min',
+      price: 'Consulte'
     }
   ];
 
@@ -156,13 +221,13 @@ export const Services: React.FC<ServicesProps> = ({ className = '' }) => {
         {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-luxury-dark-gray border border-luxury-sophisticated-brown text-luxury-bronze rounded-full text-sm font-medium mb-4">
-            Nossos Tratamentos
+            ✨ Conheça os procedimentos da nossa clínica ✨
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-luxury-cream mb-6">
-            Procedimentos Especializados
+            Nossos Procedimentos
           </h2>
           <p className="text-xl text-luxury-medium-gray max-w-3xl mx-auto leading-relaxed">
-            Oferecemos uma gama completa de tratamentos estéticos com as mais 
+            Oferecemos uma gama completa de procedimentos estéticos com as mais 
             avançadas técnicas e produtos de alta qualidade para realçar sua beleza natural.
           </p>
         </div>

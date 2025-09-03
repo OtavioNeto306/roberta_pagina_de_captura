@@ -13,12 +13,6 @@ export const contactFormSchema = z.object({
     .min(10, 'WhatsApp deve ter pelo menos 10 dígitos')
     .max(15, 'WhatsApp deve ter no máximo 15 dígitos')
     .regex(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, 'Formato inválido. Use: (11) 99999-9999'),
-  
-  email: z
-    .string()
-    .email('Email deve ter um formato válido')
-    .min(5, 'Email deve ter pelo menos 5 caracteres')
-    .max(100, 'Email deve ter no máximo 100 caracteres'),
 });
 
 // Tipo inferido do schema - importar de types/index.ts

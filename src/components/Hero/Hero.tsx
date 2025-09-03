@@ -1,6 +1,5 @@
 import React from 'react';
 import { ContactForm } from '../ContactForm/ContactForm';
-import { ServicesSlider } from '../ServicesSlider';
 
 interface HeroProps {
   className?: string;
@@ -39,9 +38,26 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
       </div>
 
       <div className="relative z-10 container-max section-padding">
+        {/* Header Mobile - Aparece apenas no mobile acima do formulário */}
+        <div className="lg:hidden text-center mb-8">
+          <div className="mb-4">
+            <span className="badge">
+              ✨ Especialista em Estética Avançada
+            </span>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-offwhite mb-4 leading-tight">
+            Dra. <span className="text-bronze-gradient drop-shadow-sm">Roberttà Simone</span>
+          </h1>
+        </div>
+        
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="text-center lg:text-left">
+          {/* Contact Form - Primeira coisa visível */}
+          <div className="relative order-1 lg:order-1" id="contact-form">
+            <ContactForm className="max-w-lg mx-auto" />
+          </div>
+          
+          {/* Content - Oculto no mobile */}
+          <div className="hidden lg:block text-center lg:text-left order-2 lg:order-2">
             <div className="mb-6">
               <span className="badge">
                 ✨ Especialista em Estética Avançada
@@ -96,16 +112,40 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
               </div>
             </div>
           </div>
-          
-          {/* Contact Form */}
-          <div className="relative" id="contact-form">
-            <ContactForm className="max-w-lg mx-auto" />
-          </div>
         </div>
         
-        {/* Services Slider */}
-        <div className="mt-4 pt-4 border-t border-bronze-300">
-          <ServicesSlider />
+        {/* Featured Services - Oculto no mobile */}
+        <div className="hidden lg:block mt-8 pt-8 border-t border-bronze-300">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-bold text-luxury mb-2">Nossos Principais Procedimentos</h3>
+            <p className="text-muted">Tratamentos especializados para sua beleza</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-bg-800 to-bronze-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-bronze-300">
+              <div className="w-12 h-12 bg-bronze-600 bg-opacity-30 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">✨</span>
+              </div>
+              <h4 className="text-lg font-semibold text-luxury mb-2">HARMONIZAÇÃO FACIAL</h4>
+              <p className="text-sm text-muted">E CORPORAL</p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-bg-800 to-bronze-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-bronze-300">
+              <div className="w-12 h-12 bg-bronze-600 bg-opacity-30 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">💉</span>
+              </div>
+              <h4 className="text-lg font-semibold text-luxury mb-2">BOTOX</h4>
+              <p className="text-sm text-muted">Rejuvenescimento natural</p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-bg-800 to-bronze-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-bronze-300">
+              <div className="w-12 h-12 bg-bronze-600 bg-opacity-30 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">🌟</span>
+              </div>
+              <h4 className="text-lg font-semibold text-luxury mb-2">BIO ESTIMULADOR</h4>
+              <p className="text-sm text-muted">De colágeno</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
