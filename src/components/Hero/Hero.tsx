@@ -23,15 +23,19 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
     }
   };
   return (
-    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden ${className}`}>
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100"></div>
-      
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ec4899' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
+    <section className={`relative min-h-screen bg-gradient-to-br from-bg-900 via-bg-800 to-bg-900 flex items-center justify-center overflow-hidden ${className}`}>
+      {/* Padrão de fundo SVG luxuoso */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="luxury-grain" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+              <circle cx="4" cy="4" r="1.5" fill="#B37B4E" opacity="0.3"/>
+              <circle cx="2" cy="2" r="0.8" fill="#8C5C3A" opacity="0.2"/>
+              <circle cx="6" cy="6" r="0.5" fill="#F6F1E8" opacity="0.1"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#luxury-grain)"/>
+        </svg>
       </div>
 
       <div className="relative z-10 container-max section-padding">
@@ -39,19 +43,19 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
           {/* Content */}
           <div className="text-center lg:text-left">
             <div className="mb-6">
-              <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              <span className="badge">
                 ✨ Especialista em Estética Avançada
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Dra. <span className="text-primary-600">Roberttà Simone</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-offwhite mb-6 leading-tight">
+              Dra. <span className="text-bronze-gradient drop-shadow-sm">Roberttà Simone</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-muted mb-8 leading-relaxed font-medium">
               Transforme sua beleza com tratamentos estéticos de última geração. 
-              <span className="text-primary-600 font-semibold"> Resultados naturais</span> e 
-              <span className="text-primary-600 font-semibold"> duradouros</span> que realçam sua autoestima.
+              <span className="text-bronze font-semibold"> Resultados naturais</span> e 
+              <span className="text-bronze font-semibold"> duradouros</span> que realçam sua autoestima.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
@@ -67,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
               
               <button 
                 onClick={scrollToForm}
-                className="btn-secondary text-lg px-8 py-4 inline-flex items-center justify-center"
+                className="btn-outline text-lg px-8 py-4 inline-flex items-center justify-center"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -77,18 +81,18 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-bronze-300">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-1">500+</div>
-                <div className="text-sm text-gray-600">Pacientes Atendidos</div>
+                <div className="text-2xl md:text-3xl font-bold text-champagne mb-1">500+</div>
+                <div className="text-sm text-muted">Pacientes Atendidos</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-1">18+</div>
-                <div className="text-sm text-gray-600">Anos de Experiência</div>
+                <div className="text-2xl md:text-3xl font-bold text-champagne mb-1">18+</div>
+                <div className="text-sm text-muted">Anos de Experiência</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-1">15+</div>
-                <div className="text-sm text-gray-600">Tratamentos Disponíveis</div>
+                <div className="text-2xl md:text-3xl font-bold text-champagne mb-1">15+</div>
+                <div className="text-sm text-muted">Tratamentos Disponíveis</div>
               </div>
             </div>
           </div>
@@ -100,12 +104,10 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
         </div>
         
         {/* Services Slider */}
-        <div className="mt-4 pt-4 border-t border-gray-200">
+        <div className="mt-4 pt-4 border-t border-bronze-300">
           <ServicesSlider />
         </div>
       </div>
-      
-
     </section>
   );
 };

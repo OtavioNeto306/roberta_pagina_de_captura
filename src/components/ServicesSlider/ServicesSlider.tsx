@@ -88,18 +88,18 @@ export const ServicesSlider: React.FC = () => {
         {/* Navigation Buttons */}
         <button
           onClick={goToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-luxury-cream/90 hover:bg-luxury-cream shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110 border border-gold-copper"
           aria-label="Serviço anterior"
         >
-          <ChevronLeft className="w-5 h-5 text-primary-600" />
+          <ChevronLeft className="w-5 h-5 text-gold-copper" />
         </button>
         
         <button
           onClick={goToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-luxury-cream/90 hover:bg-luxury-cream shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110 border border-gold-copper"
           aria-label="Próximo serviço"
         >
-          <ChevronRight className="w-5 h-5 text-primary-600" />
+          <ChevronRight className="w-5 h-5 text-gold-copper" />
         </button>
 
         {/* Services Container */}
@@ -108,10 +108,10 @@ export const ServicesSlider: React.FC = () => {
             {visibleServices.map((service, index) => (
               <div
                 key={`${service.id}-${currentIndex}-${index}`}
-                className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-primary-200"
+                className="bg-gradient-to-br from-luxury-dark-gray to-gold-copper rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-gold-copper"
               >
 
-                <h3 className="text-sm font-semibold text-primary-800 leading-tight">
+                <h3 className="text-sm font-semibold text-luxury-cream leading-tight">
                   {service.name}
                 </h3>
               </div>
