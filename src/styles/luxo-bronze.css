@@ -1,0 +1,207 @@
+/* Paleta "Luxo Bronze" - Degradês e Estilos Customizados */
+
+:root {
+  /* Cores base */
+  --bg-900: #0B0B0C;
+  --bg-800: #161617;
+  --line-700: #2A2A2C;
+
+  /* Bronze gradiente */
+  --bronze-700: #8C5C3A;
+  --bronze-600: #A26B43;
+  --bronze-500: #B37B4E;
+  --bronze-400: #C79766;
+  --bronze-300: #D8AE7A;
+  --champagne: #EED9B6;
+  --offwhite: #F6F1E8;
+}
+
+/* Fundo geral com leve vinheta */
+body {
+  background: 
+    radial-gradient(1200px 600px at 70% 0%, rgba(255,255,255,.04), transparent 60%), 
+    radial-gradient(900px 500px at 20% 20%, rgba(255,255,255,.03), transparent 55%), 
+    linear-gradient(180deg, #111112 0%, #0B0B0C 100%);
+  color: #EDEDED;
+}
+
+/* Bronze metálico - degradê principal */
+.bronze-gradient {
+  background-image: 
+    linear-gradient(135deg, 
+      var(--bronze-700) 0%, 
+      var(--bronze-600) 18%, 
+      var(--bronze-500) 33%, 
+      var(--bronze-400) 52%, 
+      var(--bronze-300) 73%, 
+      var(--champagne) 100%);
+}
+
+/* Botão primário (bronze com "brilho") */
+.btn-primary {
+  background-image: 
+    linear-gradient(135deg, 
+      var(--bronze-700) 0%, 
+      var(--bronze-600) 18%, 
+      var(--bronze-500) 33%, 
+      var(--bronze-400) 52%, 
+      var(--bronze-300) 73%, 
+      var(--champagne) 100%);
+  color: var(--offwhite);
+  border: 1px solid rgba(238,217,182,.35);
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-weight: 700;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,.18), 
+    0 10px 24px rgba(0,0,0,.35);
+  transition: all .25s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06) contrast(1.02);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,.25), 
+    0 16px 36px rgba(0,0,0,.45);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* Botão secundário (outline bronze) */
+.btn-outline {
+  background: transparent;
+  color: var(--bronze-300);
+  border: 2px solid rgba(216,174,122,.55);
+  border-radius: 12px;
+  padding: 12px 20px;
+  transition: .25s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  color: var(--champagne);
+  border-color: var(--champagne);
+  background: linear-gradient(180deg, rgba(216,174,122,.08), transparent);
+}
+
+/* Card do formulário */
+.form-card {
+  background: linear-gradient(180deg, #18181A 0%, #121213 100%);
+  border: 1px solid rgba(216,174,122,.25);
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  border-radius: 18px;
+}
+
+/* Inputs */
+.input {
+  background: #141416;
+  border: 1px solid rgba(216,174,122,.28);
+  color: #EDEDED;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  transition: all .25s ease;
+}
+
+.input::placeholder {
+  color: rgba(237,237,237,.45);
+  font-weight: 400;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--bronze-300);
+  box-shadow: 0 0 0 3px rgba(216,174,122,.15);
+  background: #161618;
+}
+
+.input:hover {
+  border-color: rgba(216,174,122,.35);
+}
+
+/* Badge/Título com bloco bronze */
+.badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: 
+    linear-gradient(135deg, 
+      rgba(255,255,255,.10) 0%, 
+      rgba(255,255,255,0) 30%), 
+    linear-gradient(135deg, 
+      var(--bronze-700) 0%, 
+      var(--bronze-500) 45%, 
+      var(--bronze-300) 85%, 
+      var(--champagne) 100%);
+  color: var(--offwhite);
+  border: 1px solid rgba(238,217,182,.35);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Utilitárias para textos */
+.text-luxury {
+  color: var(--offwhite);
+}
+
+.text-bronze {
+  color: var(--bronze-300);
+}
+
+.text-champagne {
+  color: var(--champagne);
+}
+
+.text-muted {
+  color: #CFCFD2;
+}
+
+/* Cards com fundo luxuoso */
+.card-luxury {
+  background: linear-gradient(180deg, var(--bg-800) 0%, var(--bg-900) 100%);
+  border: 1px solid var(--line-700);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+
+/* Efeito de brilho sutil para elementos interativos */
+.glow-bronze {
+  box-shadow: 0 0 20px rgba(179,123,78,.15);
+}
+
+.glow-bronze:hover {
+  box-shadow: 0 0 30px rgba(179,123,78,.25);
+}
+
+/* Linha divisória com bronze */
+.divider-bronze {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bronze-300), transparent);
+  opacity: 0.3;
+}
+
+/* Animação de shimmer para elementos premium */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(238,217,182,.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}

@@ -1,7 +1,6 @@
 interface ContactFormData {
   fullName: string;
   whatsapp: string;
-  email: string;
 }
 
 interface Service {

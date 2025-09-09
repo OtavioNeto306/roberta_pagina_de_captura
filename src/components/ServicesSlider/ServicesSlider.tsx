@@ -8,20 +8,17 @@ interface Service {
 }
 
 const services: Service[] = [
-  { id: 1, name: 'BLACK PEEL' },
-  { id: 2, name: 'BOTOX FULL FACE' },
-  { id: 3, name: 'BOTOX SIMPLES' },
-  { id: 4, name: 'CRIO FREQUÊNCIA CORPORAL E FACIAL' },
-  { id: 5, name: 'DEPILAÇÃO A LASER CORPORAL E FACIAL' },
-  { id: 6, name: 'DRENAGEM LINFÁTICA' },
-  { id: 7, name: 'ELLANSÉ' },
-  { id: 8, name: 'ESTÉTICA ÍNTIMA' },
-  { id: 9, name: 'EZBODY' },
-  { id: 10, name: 'HYPER SLIN' },
-  { id: 11, name: 'JATO DE PLASMA' },
-  { id: 12, name: 'LIMPEZA DE PELE' },
-  { id: 13, name: 'PROENZAYME' },
-  { id: 14, name: 'MICROAGULHAMENTO FACIAL E CORPORAL' }
+  { id: 1, name: '✨ Harmonização facial e corporal' },
+  { id: 2, name: '✨ Bio estimulador de colágeno' },
+  { id: 3, name: '✨ Botox' },
+  { id: 4, name: '✨ Preenchimento' },
+  { id: 5, name: '✨ Estética íntima' },
+  { id: 6, name: '✨ Microagulhamento' },
+  { id: 7, name: '✨ Black PEEL' },
+  { id: 8, name: '✨ Limpeza de pele' },
+  { id: 9, name: '✨ Proenzyme' },
+  { id: 10, name: '✨ Jato de plasma' },
+  { id: 11, name: '✨ Ultrassom microfocado' }
 ];
 
 export const ServicesSlider: React.FC = () => {
@@ -88,18 +85,18 @@ export const ServicesSlider: React.FC = () => {
         {/* Navigation Buttons */}
         <button
           onClick={goToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-luxury-cream/90 hover:bg-luxury-cream shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110 border border-gold-copper"
           aria-label="Serviço anterior"
         >
-          <ChevronLeft className="w-5 h-5 text-primary-600" />
+          <ChevronLeft className="w-5 h-5 text-gold-copper" />
         </button>
         
         <button
           onClick={goToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-luxury-cream/90 hover:bg-luxury-cream shadow-lg rounded-full p-2 transition-all duration-200 hover:scale-110 border border-gold-copper"
           aria-label="Próximo serviço"
         >
-          <ChevronRight className="w-5 h-5 text-primary-600" />
+          <ChevronRight className="w-5 h-5 text-gold-copper" />
         </button>
 
         {/* Services Container */}
@@ -108,10 +105,10 @@ export const ServicesSlider: React.FC = () => {
             {visibleServices.map((service, index) => (
               <div
                 key={`${service.id}-${currentIndex}-${index}`}
-                className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-primary-200"
+                className="bg-gradient-to-br from-luxury-dark-gray to-gold-copper rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-gold-copper"
               >
 
-                <h3 className="text-sm font-semibold text-primary-800 leading-tight">
+                <h3 className="text-sm font-semibold text-luxury-cream leading-tight">
                   {service.name}
                 </h3>
               </div>

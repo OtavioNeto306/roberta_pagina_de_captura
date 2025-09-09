@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import './styles/luxo-bronze.css';
 
 @tailwind base;
 @tailwind components;
@@ -8,23 +9,21 @@
   * {
     box-sizing: border-box;
   }
-  body {
-    font-family: 'Inter', sans-serif;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+  /* O body já está definido no luxo-bronze.css com vinheta */
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  /* Botões usando as novas classes do luxo-bronze.css */
+  .btn-tailwind-primary {
+    @apply bg-bronze-500 hover:bg-bronze-300 text-offwhite font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl;
   }
   
-  .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-primary-600 font-medium py-3 px-6 rounded-lg border border-primary-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  .btn-tailwind-secondary {
+    @apply bg-transparent border-2 border-bronze-300 text-bronze-300 hover:bg-bronze-300 hover:text-offwhite font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
   }
   
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+    @apply w-full px-4 py-3 border border-bronze-300 rounded-lg focus:ring-2 focus:ring-bronze-500 focus:border-bronze-500 bg-bg-800 text-offwhite transition-all duration-200 placeholder-gray-400;
   }
   
   .section-padding {
@@ -33,5 +32,37 @@
   
   .container-max {
     @apply max-w-7xl mx-auto;
+  }
+  
+  .text-luxury-title {
+    @apply text-offwhite font-bold;
+  }
+  
+  .text-luxury-secondary {
+    @apply text-bronze-300;
+  }
+  
+  .bg-luxury-section {
+    @apply bg-bg-900;
+  }
+  
+  .bg-luxury-card {
+    @apply bg-bg-800;
+  }
+  
+  /* Classes adicionais para a paleta Luxo Bronze */
+  .text-bronze-gradient {
+    background: linear-gradient(135deg, #8C5C3A 0%, #B37B4E 50%, #D8AE7A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .border-bronze {
+    @apply border-bronze-300;
+  }
+  
+  .bg-bronze-gradient {
+    background: linear-gradient(135deg, #8C5C3A 0%, #A26B43 18%, #B37B4E 33%, #C79766 52%, #D8AE7A 73%, #EED9B6 100%);
   }
 }

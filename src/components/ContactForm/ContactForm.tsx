@@ -47,10 +47,18 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         setTimeout(() => {
           const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '557135995423';
           const whatsappMessage = import.meta.env.VITE_WHATSAPP_MESSAGE || 
-            `Olá Dra. Roberta! Meu nome é ${data.fullName} e gostaria de agendar uma avaliação. Meu WhatsApp: ${data.whatsapp} | Email: ${data.email}`;
+            `Olá Dra. Roberta! Meu nome é ${data.fullName} e gostaria de agendar uma avaliação. Meu WhatsApp: ${data.whatsapp}`;
           
           const whatsappURL = generateWhatsAppURL(whatsappNumber, whatsappMessage);
-          window.open(whatsappURL, '_blank');
+          
+          // Solução mais robusta para iPhone e Android
+          if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            // Para iOS, tenta primeiro o app nativo, depois fallback para web
+            window.location.href = whatsappURL;
+          } else {
+            // Para Android e outros, abre em nova aba
+            window.open(whatsappURL, '_blank');
+          }
           
           // Resetar formulário após sucesso
           reset();
@@ -74,30 +82,30 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
   };
 
   return (
-    <div className={`bg-white rounded-2xl shadow-xl p-8 ${className}`}>
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Fale com a Dra. Roberta
+    <div className={`form-card p-10 ${className}`}>
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold text-luxury mb-6 drop-shadow-sm">
+          Agende sua Avaliação
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-muted text-lg font-medium">
           Preencha o formulário abaixo e entre em contato conosco pelo WhatsApp
         </p>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         {/* Nome Completo */}
         <div>
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-            Nome*
+          <label htmlFor="fullName" className="block text-sm font-medium text-luxury mb-3">
+            Me diga o seu nome*
           </label>
           <input
             {...register('fullName')}
             type="text"
             id="fullName"
-            className={`input-field ${
+            className={`input ${
               errors.fullName ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''
             }`}
-            placeholder="Digite seu nome completo"
+            placeholder="Digite seu nome/apelido aqui"
           />
           {errors.fullName && (
             <p className="mt-1 text-sm text-red-600">{errors.fullName.message}</p>
@@ -106,14 +114,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
 
         {/* WhatsApp */}
         <div>
-          <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="whatsapp" className="block text-sm font-medium text-luxury mb-3">
             WhatsApp *
           </label>
           <input
             {...register('whatsapp')}
             type="tel"
             id="whatsapp"
-            className={`input-field ${
+            className={`input ${
               errors.whatsapp ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''
             }`}
             placeholder="(11) 99999-9999"
@@ -130,32 +138,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           )}
         </div>
 
-        {/* Email */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email *
-          </label>
-          <input
-            {...register('email')}
-            type="email"
-            id="email"
-            className={`input-field ${
-              errors.email ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''
-            }`}
-            placeholder="seu@email.com"
-          />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-          )}
-        </div>
+
 
         {/* Status Message */}
         {submitStatus.type && (
           <div
             className={`p-4 rounded-lg ${
               submitStatus.type === 'success'
-                ? 'bg-green-50 text-green-800 border border-green-200'
-                : 'bg-red-50 text-red-800 border border-red-200'
+                ? 'bg-bronze-700 bg-opacity-20 text-bronze border border-bronze-300'
+                : 'bg-red-900 bg-opacity-20 text-red-400 border border-red-600'
             }`}
           >
             {submitStatus.message}
@@ -176,16 +167,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
               Enviando...
             </div>
           ) : (
-            'Falar com a Dra. Roberta'
+            'Entre em contato'
           )}
         </button>
       </form>
 
-      <div className="mt-6 text-center">
-        <p className="text-sm text-gray-500">
-          Ao enviar este formulário, você será redirecionado para o WhatsApp
-        </p>
-      </div>
+
     </div>
   );
 };
