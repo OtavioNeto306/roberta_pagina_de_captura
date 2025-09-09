@@ -1,4 +1,5 @@
 import React from 'react';
+import { generateWhatsAppURL } from '../../utils/helpers';
 
 interface ServiceProps {
   icon: string;
@@ -184,10 +185,26 @@ export const Services: React.FC<ServicesProps> = ({ className = '' }) => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-xl transition-colors">
+            <button 
+              onClick={() => {
+                const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '557135995423';
+                const whatsappMessage = import.meta.env.VITE_WHATSAPP_MESSAGE || 'Olá Dra. Roberttà! Gostaria de agendar uma consulta de estética.';
+                const whatsappURL = generateWhatsAppURL(whatsappNumber, whatsappMessage);
+                window.open(whatsappURL, '_blank');
+              }}
+              className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-xl transition-colors"
+            >
               Agendar Consulta
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-4 px-8 rounded-xl transition-colors">
+            <button 
+              onClick={() => {
+                const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '557135995423';
+                const whatsappMessage = import.meta.env.VITE_WHATSAPP_MESSAGE || 'Olá Dra. Roberttà! Gostaria de saber mais sobre os tratamentos disponíveis.';
+                const whatsappURL = generateWhatsAppURL(whatsappNumber, whatsappMessage);
+                window.open(whatsappURL, '_blank');
+              }}
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-4 px-8 rounded-xl transition-colors"
+            >
               Falar no WhatsApp
             </button>
           </div>
