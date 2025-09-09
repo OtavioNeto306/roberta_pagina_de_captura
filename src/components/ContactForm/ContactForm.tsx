@@ -34,42 +34,45 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      // Enviar dados para o webhook
-      const webhookResult = await sendToWebhook(data);
+      // Preparar redirecionamento para WhatsApp ANTES do webhook
+      const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '557135995423';
+      const whatsappMessage = import.meta.env.VITE_WHATSAPP_MESSAGE || 
+        `Olá Dra. Roberta! Meu nome é ${data.fullName} e gostaria de agendar uma avaliação. Meu WhatsApp: ${data.whatsapp}`;
+      
+      const whatsappURL = generateWhatsAppURL(whatsappNumber, whatsappMessage);
+      
+      setSubmitStatus({
+        type: 'success',
+        message: 'Redirecionando para o WhatsApp...',
+      });
 
-      if (webhookResult.success) {
-        setSubmitStatus({
-          type: 'success',
-          message: 'Dados enviados com sucesso! Redirecionando para o WhatsApp...',
-        });
+      // Redirecionar IMEDIATAMENTE para evitar perda de contexto
+      setTimeout(() => {
+        // Solução mais robusta para iPhone e Android
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          // Para iOS, usar window.location.href para abrir o app nativo
+          window.location.href = whatsappURL;
+        } else {
+          // Para Android e outros, abre em nova aba
+          window.open(whatsappURL, '_blank');
+        }
+      }, 500); // Reduzido para 500ms para resposta mais rápida
 
-        // Aguardar um momento antes de redirecionar
-        setTimeout(() => {
-          const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '557135995423';
-          const whatsappMessage = import.meta.env.VITE_WHATSAPP_MESSAGE || 
-            `Olá Dra. Roberta! Meu nome é ${data.fullName} e gostaria de agendar uma avaliação. Meu WhatsApp: ${data.whatsapp}`;
-          
-          const whatsappURL = generateWhatsAppURL(whatsappNumber, whatsappMessage);
-          
-          // Solução mais robusta para iPhone e Android
-          if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            // Para iOS, tenta primeiro o app nativo, depois fallback para web
-            window.location.href = whatsappURL;
-          } else {
-            // Para Android e outros, abre em nova aba
-            window.open(whatsappURL, '_blank');
-          }
-          
-          // Resetar formulário após sucesso
-          reset();
-          setSubmitStatus({ type: null, message: '' });
-        }, 2000);
-      } else {
-        setSubmitStatus({
-          type: 'error',
-          message: webhookResult.error || 'Erro ao enviar dados. Tente novamente.',
-        });
-      }
+      // Enviar dados para o webhook em background (não bloqueia o redirecionamento)
+      sendToWebhook(data).then((webhookResult) => {
+        if (!webhookResult.success) {
+          console.warn('Webhook falhou:', webhookResult.error);
+        }
+      }).catch((err) => {
+        console.error('Erro no webhook:', err);
+      });
+      
+      // Resetar formulário após um tempo
+      setTimeout(() => {
+        reset();
+        setSubmitStatus({ type: null, message: '' });
+      }, 3000);
+      
     } catch (err) {
       console.error('Erro ao processar formulário:', err);
       setSubmitStatus({
